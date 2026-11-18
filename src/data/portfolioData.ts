@@ -1,11 +1,11 @@
 import type { Project, Skill, TodoItem } from '../types';
 
 export const PERSONAL_INFO = {
-  name: "Giga Tsuladze",
+  name: "Keso Tsulaia",
   role: "Full-Stack & React Developer",
   status: "მზად ვარ ახალი პროექტებისთვის 🚀",
   location: "Tbilisi, Georgia",
-  email: "giga.tsuladze@example.com",
+  email: "keso.tsulaia@example.com",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
   telegram: "https://t.me",
