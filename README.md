@@ -1,75 +1,119 @@
-# React + TypeScript + Vite
+# 🚀 თანამედროვე React პორთფოლიო & Todo App (Dark Edition)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+დახვეწილი, ულტრა-თანამედროვე მუქი დიზაინის მქონე Developer Portfolio და ჩაშენებული სამუშაო Todo-აპლიკაცია. შექმნილია **React 19**, **TypeScript** და **Vite** ტექნოლოგიებით.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ ძირითადი ფუნქციონალი
 
-## React Compiler
+1. 🌌 **დახვეწილი Dark Theme დიზაინი**:
+   - თანამედროვე ნეონის, ინდიგოსა და იისფერი აქცენტები
+   - Glassmorphism ბარათები, Glow ეფექტები და გლუვი გადასვლები
+   - სრულიად მობილურ-ადაპტირებული (Responsive Design)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. 🧭 **ფუნქციური Header და Footer**:
+   - **Header**: სექციებზე გლუვი გადასვლა, აქტიური სექციის ინდიკატორი, სწრაფი ძიების ღილაკი (`Ctrl + K`), GitHub ბმული და მობილური მენიუ.
+   - **Footer**: სოციალური ქსელები, ნავიგაციის ბმულები, GitHub Pages სტატუსი და "ზემოთ დაბრუნების" ღილაკი.
 
-## Expanding the ESLint configuration
+3. 🔍 **გლობალური ძიება (Global Search / Command Palette)**:
+   - იხსნება Header-იდან ან კლავიატურის კომბინაციით: `Ctrl + K` (ან `Cmd + K`).
+   - მყისიერი ძიება **პროექტებში**, **უნარებში**, **Todo დავალებებსა** და **გვერდის სექციებში**.
+   - შედეგზე დაჭერით ავტომატურად გადადის შესაბამის ადგილზე.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+4. 📝 **ინტერაქტიული Todo-List აპლიკაცია**:
+   - დავალების დამატება პრიორიტეტებით (🔴 მაღალი, 🟡 საშუალო, 🟢 დაბალი) და კატეგორიებით (💻 Development, 🎨 Design, 📚 Study, 🌟 Personal).
+   - შესრულებულად მონიშვნა ანიმაციით.
+   - ადგილზე რედაქტირება (Inline Edit) და წაშლა.
+   - ფილტრაცია სტატუსის მიხედვით (ყველა, აქტიური, დასრულებული) და კატეგორიით.
+   - რეალურ დროში ძიება დავალებებში.
+   - პროგრესის მაჩვენებელი პროცენტებში.
+   - მონაცემების შენახვა ბრაუზერში (**LocalStorage**), რაც უზრუნველყოფს, რომ გვერდის გადატვირთვისას არაფერი იკარგება.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+5. 💼 **პროექტები და ტექნოლოგიური სტეკი**:
+   - პროექტების ფილტრაცია კატეგორიებითა და ძიებით.
+   - პირდაპირი ღილაკები GitHub რეპოზიტორიასა და Live დემოზე გადასასვლელად.
+   - უნარ-ჩვევების პროგრეს-ბარები და ფილტრები.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+6. 🌐 **GitHub Pages-ზე გაშვებისთვის 100% მზადყოფნა**:
+   - `vite.config.ts`-ში მითითებულია `base: './'`, რის გამოც საიტი იმუშავებს ნებისმიერ GitHub Pages ლინკზე (სურათები, JS და CSS ფაილები არ დაიკარგება).
+   - ჩაშენებულია `.github/workflows/deploy.yml` ავტომატური ჰოსტინგისთვის.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
+## 🛠️ ლოკალურად გაშვება (Local Development)
+
+```bash
+# 1. დამოკიდებულებების ინსტალაცია (თუ უკვე არ არის გაკეთებული)
+npm install
+
+# 2. დეველოპერული სერვერის გაშვება
+npm run dev
+
+# 3. პროექტის დაბილდვა
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 როგორ გავუშვათ GitHub-ზე ისე, რომ საიტის ლინკმა იმუშაოს
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+იმისათვის, რომ შექმნათ GitHub რეპოზიტორია და მიიღოთ მუშა ლინკი GitHub Pages-ზე:
+
+### ნაბიჯი 1: შექმენით რეპოზიტორია GitHub-ზე
+1. შედით [github.com](https://github.com)
+2. დააჭირეთ **New repository**
+3. დაარქვით სახელი (მაგ: `portfolio` ან `voto`)
+4. აირჩიეთ **Public** და დააჭირეთ **Create repository**
+
+### ნაბიჯი 2: ატვირთეთ კოდი თქვენს GitHub-ზე
+თქვენს ტერმინალში გაუშვით შემდეგი ბრძანებები (შეცვალეთ თქვენი GitHub მომხმარებლის სახელითა და რეპოზიტორიის სახელით):
+
+```bash
+# მიაბით თქვენი GitHub რეპოზიტორია:
+git remote add origin https://github.com/<თქვენი-username>/<რეპოზიტორიის-სახელი>.git
+
+# ატვირთეთ პროექტი main შტოზე:
+git push -u origin main
+```
+
+### ნაბიჯი 3: ჩართეთ GitHub Pages (1-დაწკაპუნებით)
+1. თქვენს GitHub რეპოზიტორიაში შედით ჩანართში **Settings**.
+2. მარცხენა მენიუში აირჩიეთ **Pages**.
+3. **Build and deployment** განყოფილებაში **Source**-ის ქვეშ ჩამოსაშლელი სიიდან აირჩიეთ:
+   👉 **GitHub Actions**
+4. რამდენიმე წამში GitHub Actions ავტომატურად დააბილდავს და გაუშვებს საიტს!
+5. იქვე გამოჩნდება თქვენი მზა, მომუშავე ლინკი:
+   `https://<თქვენი-username>.github.io/<რეპოზიტორიის-სახელი>/`
+
+> 💡 **შენიშვნა:** `vite.config.ts`-ში უკვე გაწერილია `base: './'`, ამიტომ თქვენი ლინკი გახსნისთანავე უნაკლოდ იმუშავებს ყოველგვარი დამატებითი კონფიგურაციის გარეშე!
+
+---
+
+## 📁 პროექტის სტრუქტურა
 
 ```
+src/
+├── components/
+│   ├── About.tsx         # ჩემ შესახებ სექცია
+│   ├── Contact.tsx       # საკონტაქტო ფორმა & დეტალები
+│   ├── Footer.tsx        # საიტის ქვედა ზოლი
+│   ├── Header.tsx        # ნავიგაცია & სწრაფი ძიების ტრიგერი
+│   ├── Hero.tsx          # მთავარი შესავალი & მეტრიკები
+│   ├── Icons.tsx         # სუფთა SVG იკონები
+│   ├── Projects.tsx      # პროექტების ბარათები & ფილტრები
+│   ├── SearchModal.tsx   # გლობალური ძიების ფანჯარა (Ctrl+K)
+│   ├── Skills.tsx        # ტექნოლოგიური უნარები
+│   └── TodoList.tsx      # ინტერაქტიული სამუშაო Todo დაფა
+├── data/
+│   └── portfolioData.ts  # მონაცემები: ბიო, პროექტები, უნარები, Todo-ები
+├── types/
+│   └── index.ts          # TypeScript ინტერფეისები
+├── App.css               # დეტალური მუქი სტილები & ანიმაციები
+├── index.css             # გლობალური ცვლადები & ბაზისური წესები
+└── App.tsx               # მთავარი აპლიკაციის კომპონენტი
+```
+
+### საკუთარი მონაცემების შეცვლა
+საკუთარი სახელის, პროექტების, უნარების ან სოციალური ბმულების შესაცვლელად გახსენით ფაილი:
+`src/data/portfolioData.ts`
+და ჩაანაცვლეთ ინფორმაცია თქვენით.
