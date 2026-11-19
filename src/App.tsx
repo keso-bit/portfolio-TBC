@@ -8,12 +8,58 @@ import { TodoList } from './components/TodoList';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { SearchModal } from './components/SearchModal';
+import Users from './pages/Users';
 import type { TodoItem } from './types';
 import { INITIAL_TODOS } from './data/portfolioData';
 import './App.css';
 
 export function App() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<'home' | 'users'>(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#users' || hash === '#/users') {
+        return 'users';
+      }
+    }
+    return 'home';
+  });
+
+  // Sync hash change
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#users' || hash === '#/users') {
+        setCurrentPage('users');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigateTo = (page: 'home' | 'users', targetSection?: string) => {
+    setCurrentPage(page);
+    if (page === 'users') {
+      window.location.hash = '#users';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      if (targetSection && targetSection !== 'hero') {
+        window.location.hash = `#${targetSection}`;
+        setTimeout(() => {
+          const el = document.getElementById(targetSection);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 50);
+      } else {
+        window.location.hash = '#hero';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
 
   // Todo state with LocalStorage persistence
   const [todos, setTodos] = useState<TodoItem[]>(() => {
@@ -60,16 +106,26 @@ export function App() {
       />
 
       {/* Navigation Header */}
-      <Header onOpenSearch={() => setIsSearchOpen(true)} />
+      <Header
+        onOpenSearch={() => setIsSearchOpen(true)}
+        currentPage={currentPage}
+        onNavigate={navigateTo}
+      />
 
       {/* Main Content Sections */}
       <main id="main-content">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <TodoList todos={todos} setTodos={setTodos} />
-        <Contact />
+        {currentPage === 'users' ? (
+          <Users onBackToHome={() => navigateTo('home')} />
+        ) : (
+          <>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <TodoList todos={todos} setTodos={setTodos} />
+            <Contact />
+          </>
+        )}
       </main>
 
       {/* Functional Footer */}
