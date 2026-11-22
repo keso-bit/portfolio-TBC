@@ -9,9 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/portfolio-TBC/assets/index.css">
+    <link rel="stylesheet" crossorigin href="./assets/index.css">
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      // Fallback for static branch deployment (GitHub Pages main root)
+      if (!window.__REACT_LOADED__) {
+        const path = window.location.pathname.includes('/portfolio-TBC') 
+          ? '/portfolio-TBC/assets/index.js'
+          : './assets/index.js';
+        const s = document.createElement('script');
+        s.type = 'module';
+        s.crossOrigin = 'anonymous';
+        s.src = path;
+        document.body.appendChild(s);
+      }
+    </script>
   </body>
 </html>
