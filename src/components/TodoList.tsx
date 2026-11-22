@@ -171,7 +171,7 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
                 {/* Category select */}
                 <select
                   value={category}
-                  onChange={(e) => setCategory(e.target.value as any)}
+                  onChange={(e) => setCategory(e.target.value as 'Development' | 'Design' | 'Study' | 'Personal')}
                   className="todo-custom-select"
                   aria-label="კატეგორიის არჩევა"
                 >
@@ -184,7 +184,7 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
                 {/* Priority select */}
                 <select
                   value={priority}
-                  onChange={(e) => setPriority(e.target.value as any)}
+                  onChange={(e) => setPriority(e.target.value as 'low' | 'medium' | 'high')}
                   className="todo-custom-select"
                   aria-label="პრიორიტეტის არჩევა"
                 >

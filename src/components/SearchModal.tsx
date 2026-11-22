@@ -20,7 +20,6 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, todos
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
-      setQuery('');
     }
     return () => {
       document.body.style.overflow = 'unset';
